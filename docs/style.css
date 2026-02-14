@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Dancing+Script:wght@500&family=Playfair+Display&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    background: radial-gradient(circle at center, #12070d, #050205);
+    font-family: 'Playfair Display', serif;
+    overflow: hidden;
+    color: white;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.hidden { display: none; }
+
+
+
+.lock-screen {
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.lock-box {
+    background: rgba(255,255,255,0.05);
+    padding:50px;
+    border-radius:20px;
+    backdrop-filter:blur(20px);
+    box-shadow:0 20px 60px rgba(0,0,0,0.8);
+    text-align:center;
+}
+
+input {
+    padding:12px;
+    width:220px;
+    border-radius:30px;
+    border:none;
+    text-align:center;
+    margin-top:15px;
+}
+
+button {
+    padding:10px 25px;
+    border-radius:30px;
+    border:none;
+    cursor:pointer;
+    margin:10px;
+}
+
+
+.main {
+    text-align:center;
+    padding-top:100px;
+}
+
+
+.cinematic-intro {
+    font-size:2rem;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    opacity:0;
+    animation: zoomIn 6s ease forwards;
+}
+
+@keyframes zoomIn {
+    0% { transform:scale(1.3); opacity:0; }
+    100% { transform:scale(1); opacity:1; }
+}
+
+.envelope {
+    width: 300px;      
+    height: 180px;     
+    background: linear-gradient(145deg,#f5e6da,#e7cfc1);
+    margin: auto;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 2s;
+    overflow: hidden;
+}
+
+.envelope.open { 
+    height: 400px;    
+}
+
+.letter {
+    padding: 25px;   
+    opacity: 0;
+    transition: 3s;
+    color: #4a2c2a;
+    font-size: 1rem;  
+}
+
+
+.letter p {
+    display: inline-block;
+    animation: sway 4s ease-in-out infinite;
+}
+@keyframes sway {
+    0% { transform: translateX(0px); }
+    25% { transform: translateX(2px); }
+    50% { transform: translateX(0px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0px); }
+}
+
+.envelope.open .letter { opacity:1; }
+
+
+.envelope-wrapper.fade-out {
+    opacity: 0;
+    transition: 1.5s;
+}
+
+
+.proposal {
+    margin-top:120px;
+    opacity:0;
+    transition:3s;
+}
+
+.proposal.show { opacity:1; }
+
+.proposal h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, #ff5ea2, #ff0077, #ffdd00, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: colorShift 6s ease infinite;
+}
+
+@keyframes colorShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.ring-box {
+    width:120px;
+    height:80px;
+    background:#400000;
+    margin:30px auto;
+    border-radius:10px;
+    position:relative;
+    cursor:pointer;
+    perspective:1000px;
+    box-shadow: 0 0 20px #ff5ea2, 0 0 40px #ff0077, 0 0 60px #ffdd00;
+}
+
+.ring-lid {
+    width:100%;
+    height:50%;
+    background:#600000;
+    position:absolute;
+    top:0;
+    border-radius:10px 10px 0 0;
+    transform-origin:top;
+    transition:1.5s;
+}
+
+.ring-box.open .ring-lid {
+    transform:rotateX(-120deg);
+}
+
+.ring {
+    width:40px;
+    height:40px;
+    border:4px solid gold;
+    border-radius:50%;
+    position:absolute;
+    bottom:10px;
+    left:50%;
+    transform:translateX(-50%);
+    opacity:0;
+    transition:2s;
+    box-shadow:0 0 25px gold;
+}
+
+.ring-box.open .ring { opacity:1; }
+
+.buttons { margin-top:30px; }
+
+.yes-btn {
+    background:crimson;
+    color:white;
+}
+
+.no-btn {
+    background:gray;
+    color:white;
+    position:relative;
+}
+
+
+.celebration {
+    margin-top:40px;
+    font-family:'Dancing Script', cursive;
+    font-size:2rem;
+    opacity:0;
+    transition:2s;
+}
+
+.celebration.show { opacity:1; }
+
+
+
+.signature {
+    margin-top: 20px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: 1.5s;
+    text-align: right;
+}
+
+.signature.show { opacity: 1; }
+
+
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle at center, #ff5ea2, #ff0077);
+    transform: rotate(45deg);
+    animation: floatUp 4s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle at center, #ff5ea2, #ff0077);
+    border-radius: 50%;
+}
+
+.heart::before { top: -10px; left: 0; }
+.heart::after { left: 10px; top: 0; }
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(45deg); opacity:1; }
+    100% { transform: translateY(-200px) rotate(45deg); opacity:0; }
+}

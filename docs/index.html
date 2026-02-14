@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+
+<div class="lock-screen" id="lockScreen">
+    <div class="lock-box">
+        <h2>For You</h2>
+        <p>Enter the secret word</p>
+        <input type="password" id="passwordInput" placeholder="••••••">
+        <button id="unlockBtn">Unlock</button>
+        <p class="error" id="errorMsg"></p>
+    </div>
+</div>
+
+
+<div class="main hidden" id="mainContent">
+
+   
+    <div class="cinematic-intro" id="cinematicIntro">
+        This is just for you.
+    </div>
+
+
+    <div class="envelope-wrapper hidden" id="envelopeWrapper">
+        <div class="envelope" id="envelope">
+            <div class="letter">
+                <h2>My princess,</h2>
+                <p id="typeText"></p>
+                <div id="signature" class="signature hidden">Forever, You ❤️</div>
+            </div>
+        </div>
+        <p class="click-text">Open me</p>
+    </div>
+
+
+    <div class="proposal hidden" id="proposalSection">
+        <div class="ring-box" id="ringBox">
+            <div class="ring-lid"></div>
+            <div class="ring"></div>
+        </div>
+        <h1>Will you stay with me forever?</h1>
+        <div class="buttons">
+            <button class="yes-btn" id="yesBtn">Yes ❤️</button>
+            <button class="no-btn" id="noBtn">No</button>
+        </div>
+        <div class="celebration hidden" id="celebration">
+            You just made me the happiest person alive. 💍❤️
+        </div>
+    </div>
+
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="bg.mp3" type="audio/mp3">
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>
